@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OpenGLab.Properties
+namespace Smertin_tomogram_vizualizer.Properties
 {
 
 

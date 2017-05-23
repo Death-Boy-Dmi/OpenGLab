@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using OpenTK;
-using OpenTK.Graphics.OpenGL;
 
-namespace OpenGLab
+namespace Smertin_tomogram_vizualizer
 {
     static class Program
     {
