@@ -17,7 +17,7 @@ namespace Smertin_tomogram_vizualizer
 {
     class View
     {
-        public int min=0, max=2000;
+        public int min=-1000, max=2000;
         private Bitmap textureImage;
         private int VBOtexture; //хранит номер текстуры в памяти видеокарты
         public void SetupView(int width, int height)
@@ -25,7 +25,7 @@ namespace Smertin_tomogram_vizualizer
             GL.ShadeModel(ShadingModel.Smooth);
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
-            GL.Ortho(0, Bin.X, 0, Bin.Y, -1, 1);
+            GL.Ortho(0, Bin.X, 0, Bin.Z, -1, 1);
             GL.Viewport(0, 0, width, height);
         }
         public void SetMinMaxTransferFunction(int _min, int _max)
@@ -71,8 +71,6 @@ namespace Smertin_tomogram_vizualizer
                     value = Bin.array[x_coord+1 + y_coord * Bin.X + layerNumber * Bin.X * Bin.Y];
                     GL.Color3(TransferFunction(value));
                     GL.Vertex2(x_coord+1, y_coord);
-                 
-
                 }
             GL.End();
 
@@ -97,11 +95,11 @@ namespace Smertin_tomogram_vizualizer
 
         public void generateTextureImage(int layerNumber)
         {
-            textureImage = new Bitmap(Bin.X, Bin.Y);
+            textureImage = new Bitmap(Bin.X, Bin.Z);
             for (int i = 0; i < Bin.X; ++i)
-                for (int j = 0; j < Bin.Y; ++j)
+                for (int j = 0; j < Bin.Z; ++j)
                 {
-                    int pixelNumber = i + j * Bin.X + layerNumber * Bin.X * Bin.Y;
+                    int pixelNumber = i + layerNumber * Bin.X + j * Bin.X * Bin.Y;
                     textureImage.SetPixel(i, j, TransferFunction(Bin.array[pixelNumber]));
                 }
         }
@@ -119,10 +117,10 @@ namespace Smertin_tomogram_vizualizer
             GL.Vertex2(0, 0);
 
             GL.TexCoord2(0f, 1f);
-            GL.Vertex2(0, Bin.Y);
+            GL.Vertex2(0, Bin.Z);
 
             GL.TexCoord2(1f, 1f);
-            GL.Vertex2(Bin.X, Bin.Y);
+            GL.Vertex2(Bin.X, Bin.Z);
 
             GL.TexCoord2(1f, 0f);
             GL.Vertex2(Bin.X, 0);
@@ -130,5 +128,8 @@ namespace Smertin_tomogram_vizualizer
 
             GL.Disable(EnableCap.Texture2D);
         }
+
     }
+   
+
 }

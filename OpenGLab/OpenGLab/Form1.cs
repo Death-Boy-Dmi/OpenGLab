@@ -45,7 +45,7 @@ namespace Smertin_tomogram_vizualizer
                 binaryFile.ReadBin(str);
                 view.SetupView(glControl1.Width, glControl1.Height);
                 loaded = true;
-                trackBar1.Maximum = Bin.Z-1;
+                trackBar1.Maximum = Bin.Y-1;
                 glControl1.Invalidate();
             }
         }
