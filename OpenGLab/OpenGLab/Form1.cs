@@ -55,11 +55,9 @@ namespace Smertin_tomogram_vizualizer
             if (loaded)
             {   if (radioButton2.Checked)
                 {
-                  //  view.DrawQuads(currentLayer);
                     view.DrawQuads(currentLayer);
                 }
             if (radioButton1.Checked)
-            
                 {
                     //   view.DrawQuads(currentLayer);
                     if (needReload)
@@ -67,10 +65,8 @@ namespace Smertin_tomogram_vizualizer
                         view.generateTextureImage(currentLayer);
                         view.Load2DTexture();
                         needReload = false;
-
                     }
                     view.DrawTexture();
-                    
                 }
                 glControl1.SwapBuffers();
             }
