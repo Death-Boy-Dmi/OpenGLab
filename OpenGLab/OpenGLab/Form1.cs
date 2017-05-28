@@ -97,17 +97,27 @@ namespace Smertin_tomogram_vizualizer
         private void trackBar2_Scroll(object sender, EventArgs e)
         {
             view.SetMinMaxTransferFunction(trackBar2.Value, trackBar2.Value + trackBar3.Value);
-            label4.Text = "Текущий минимум = " + trackBar2.Value;
-            label5.Text = "Текущий максимум = " + (trackBar2.Value + trackBar3.Value);
-            needReload = true;
+			label4.Text = "Текущий минимум = " + trackBar2.Value;
+			label5.Text = "Текущий максимум = " + (trackBar2.Value + trackBar3.Value);
+			needReload = true;
         }
 
         private void trackBar3_Scroll(object sender, EventArgs e)
         {
             view.SetMinMaxTransferFunction(trackBar2.Value, trackBar2.Value + trackBar3.Value);
-            label6.Text = "Текущая ширина = " + trackBar3.Value;
-            label5.Text = "Текущий максимум = " + (trackBar2.Value + trackBar3.Value);
-            needReload = true;
+			label6.Text = "Текущая ширина = " + trackBar3.Value;
+			label5.Text = "Текущий максимум = " + (trackBar2.Value + trackBar3.Value);
+			needReload = true;
         }
-    }
+
+		private void radioButton2_CheckedChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

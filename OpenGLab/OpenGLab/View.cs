@@ -37,7 +37,15 @@ namespace Smertin_tomogram_vizualizer
         {
             if ((max - min) == 0) max++;
             int newVal = Clamp((Value - min) * 255 / (max - min), 0, 255);
-            return Color.FromArgb(255, newVal, newVal, newVal);
+			if (Value >=400)
+			{
+				return Color.FromArgb(100, 0, newVal, 0);
+			}
+			if (Value<400 && Value > 40)
+			{
+				return Color.FromArgb(100, 0, 0, newVal);
+			}
+			return Color.FromArgb(255, 0, newVal, newVal);
         }
         public int Clamp(int value, int min, int max)
         {
